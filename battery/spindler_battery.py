@@ -1,10 +1,10 @@
-from .battery import Battery
+from battery.battery import Battery
 
 
 class SpindlerBattery(Battery):
-    def __init__(self, last_service_date, current_date):
-        super().__init__(last_service_date, current_date)
+    __service_duration = 2
 
     def needs_service(self) -> bool:
         years_since_service = (self.current_date.year - self.last_service_date.year)
-        return years_since_service >= 2
+        print(years_since_service)
+        return years_since_service > SpindlerBattery.__service_duration

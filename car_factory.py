@@ -47,3 +47,27 @@ class CarFactory:
         engine = CapuletEngine(current_mileage, last_service_mileage)
         return Car(engine, battery)
 
+
+if __name__ == '__main__':
+    from datetime import date
+    from car_factory import CarFactory
+
+    current_date = date(2023, 1, 1)
+    last_service_date = date(2022, 1, 1)
+    current_mileage = 10000
+    last_service_mileage = 5000
+
+    calliope = CarFactory.create_calliope(current_date, last_service_date, current_mileage, last_service_mileage)
+    print(calliope.needs_service())
+
+    glissade = CarFactory.create_glissade(current_date, last_service_date, current_mileage, last_service_mileage)
+    print(glissade.needs_service())
+
+    palindrome = CarFactory.create_palindrome(current_date, last_service_date, True)
+    print(palindrome.needs_service())
+
+    rorschach = CarFactory.create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage)
+    print(rorschach.needs_service())
+
+    thovex = CarFactory.create_thovex(current_date, last_service_date, current_mileage, last_service_mileage)
+    print(thovex.needs_service())
